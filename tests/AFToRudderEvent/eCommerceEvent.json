@@ -1,0 +1,2066 @@
+{
+  "sent_at": "2019-08-19 10:40:13+0000",
+  "batch": [
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "387ff706-7717-43ae-a6d0-5a6c7f2cba00",
+        "rl_timestamp": "2019-08-19 10:39:03+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Checkout Step Viewed",
+        "rl_properties": {
+          "step": 2.0,
+          "shipping_method": "Fedex",
+          "payment_method": "Visa",
+          "checkout_id": "50314b8e9bcf000000000000",
+          "order_id": "50314b8e9bcf000000000000"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "8ac81ec0-2e62-4802-b277-4f74928ba257",
+        "rl_timestamp": "2019-08-19 10:39:06+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Cart Shared",
+        "rl_properties": {
+          "cart_id": "skdjsidjsdkdj29j",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ],
+          "share_via": "email",
+          "share_message": "Hey, check out this item",
+          "recipient": "friend@gmail.com"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "1a3ab962-4db6-4936-9c84-262d13db54e7",
+        "rl_timestamp": "2019-08-19 10:39:09+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Products Searched",
+        "rl_properties": {
+          "query": "blue hotpants"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "9b75fa88-4755-4e85-9c03-cb5ef69fca04",
+        "rl_timestamp": "2019-08-19 10:39:12+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Cart Viewed",
+        "rl_properties": {
+          "cart_id": "skdjsidjsdkdj29j",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "73b08ff5-96f5-4fcb-bc49-095facbd19fa",
+        "rl_timestamp": "2019-08-19 10:39:15+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product List Filtered",
+        "rl_properties": {
+          "list_id": "todays_deals_may_11_2016",
+          "category": "Deals",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ],
+          "filters": [
+            {
+              "type": "department",
+              "value": "beauty"
+            },
+            {
+              "type": "price",
+              "value": "under-$25"
+            }
+          ],
+          "sorts": [
+            {
+              "type": "price",
+              "value": "desc"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "7825a3d5-a3f6-495a-8fd6-0fb09dfd504f",
+        "rl_timestamp": "2019-08-19 10:39:18+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Order Updated",
+        "rl_properties": {
+          "order_id": "50314b8e9bcf000000000000",
+          "affiliation": "Google Store",
+          "total": 27.5,
+          "value": 30.0,
+          "revenue": 25.0,
+          "shipping": 3.0,
+          "tax": 2.0,
+          "discount": 2.5,
+          "coupon": "hasbros",
+          "currency": "USD",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "d3e0d592-79c1-47fc-853f-ddf1c76690b0",
+        "rl_timestamp": "2019-08-19 10:39:21+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Wishlist Product Added to Cart",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg",
+          "wishlist_id": "skdjsidjsdkdj29j",
+          "wishlist_name": "Loved Games",
+          "cart_id": "skdjsidjsdkdj29j"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "cc5b7dff-6d5d-4f6c-be0e-c42a30ac8781",
+        "rl_timestamp": "2019-08-19 10:39:24+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Coupon Removed",
+        "rl_properties": {
+          "coupon_name": "May Deals 2016",
+          "discount": 23.32,
+          "reason": "",
+          "cart_id": "skdjsidjsdkdj29j",
+          "order_id": "50314b8e9bcf000000000000",
+          "coupon_id": "may_deals_2016"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "3ffd1338-80a4-4ccd-a43f-2c4c23f85a77",
+        "rl_timestamp": "2019-08-19 10:39:27+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Promotion Viewed",
+        "rl_properties": {
+          "promotion_id": "promo_1",
+          "creative": "top_banner_2",
+          "name": "75% store-wide shoe sale",
+          "position": "home_banner_top"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "89ee723c-1cb1-4f3e-8f98-323d6cb98907",
+        "rl_timestamp": "2019-08-19 10:39:30+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product Reviewed",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "review_id": "kdfjrj39fj39jf3",
+          "review_body": "I love this product",
+          "rating": "5"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "1490d61e-9b1d-4e3e-8c0a-3dc5ccb783b9",
+        "rl_timestamp": "2019-08-19 10:39:33+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product Removed",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg",
+          "cart_id": "skdjsidjsdkdj29j"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "1b646254-9a2e-44bf-b551-b1dda208a1bd",
+        "rl_timestamp": "2019-08-19 10:39:36+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Coupon Entered",
+        "rl_properties": {
+          "coupon_name": "",
+          "discount": 0.0,
+          "reason": "",
+          "cart_id": "skdjsidjsdkdj29j",
+          "order_id": "50314b8e9bcf000000000000",
+          "coupon_id": "may_deals_2016"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "7e22cdbf-dfc4-4e81-b548-2d9c31bb3978",
+        "rl_timestamp": "2019-08-19 10:39:39+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product Added",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg",
+          "cart_id": "skdjsidjsdkdj29j"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "2413ad7d-b354-4bae-89cf-9026db274de5",
+        "rl_timestamp": "2019-08-19 10:39:42+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Promotion Clicked",
+        "rl_properties": {
+          "promotion_id": "promo_1",
+          "creative": "top_banner_2",
+          "name": "75% store-wide shoe sale",
+          "position": "home_banner_top"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "9896ab2f-ad63-4d52-af01-40215eff204f",
+        "rl_timestamp": "2019-08-19 10:39:45+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Order Refunded",
+        "rl_properties": {
+          "order_id": "50314b8e9bcf000000000000",
+          "total": 30.0,
+          "currency": "USD",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "775b3388-8d1b-4a40-aa64-ff9254ec0fd4",
+        "rl_timestamp": "2019-08-19 10:39:48+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product Removed from Wishlist",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg",
+          "wishlist_id": "skdjsidjsdkdj29j",
+          "wishlist_name": "Loved Games"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "46d8b325-e431-4784-9b3b-5ea16a428013",
+        "rl_timestamp": "2019-08-19 10:39:51+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product Added to Wishlist",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg",
+          "wishlist_id": "skdjsidjsdkdj29j",
+          "wishlist_name": "Loved Games"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "21d9f2f8-a768-46f9-bce9-1adcc8aadd2a",
+        "rl_timestamp": "2019-08-19 10:39:55+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Order Refunded",
+        "rl_properties": {
+          "order_id": "50314b8e9bcf000000000000"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "2fc8e6f7-39c7-49df-8ef8-c25ab5dc8275",
+        "rl_timestamp": "2019-08-19 10:39:58+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product List Viewed",
+        "rl_properties": {
+          "list_id": "hot_deals_1",
+          "category": "Deals",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "6a79ff14-6ba3-42f9-830e-2a9fc71982ab",
+        "rl_timestamp": "2019-08-19 10:40:04+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Order Cancelled",
+        "rl_properties": {
+          "order_id": "50314b8e9bcf000000000000",
+          "affiliation": "Google Store",
+          "total": 27.5,
+          "value": 30.0,
+          "revenue": 25.0,
+          "shipping": 3.0,
+          "tax": 2.0,
+          "discount": 2.5,
+          "coupon": "hasbros",
+          "currency": "USD",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "fd93e95f-0f53-40ba-b2b2-7d967601f9a8",
+        "rl_timestamp": "2019-08-19 10:40:07+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Checkout Step Completed",
+        "rl_properties": {
+          "step": 2.0,
+          "shipping_method": "Fedex",
+          "payment_method": "Visa",
+          "checkout_id": "50314b8e9bcf000000000000",
+          "order_id": "50314b8e9bcf000000000000"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "afc52baf-c439-4cee-8ea0-e0f819fc95cd",
+        "rl_timestamp": "2019-08-19 10:40:10+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Product Shared",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg",
+          "share_via": "email",
+          "share_message": "Hey, check out this item",
+          "recipient": "friend@gmail.com"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "2a61a262-5495-4cdc-ac6e-82c9050ec1d2",
+        "rl_timestamp": "2019-08-19 10:40:13+0000",
+        "rl_anonymous_id": "e91db6b8-970e-4a32-adb4-6b3866b50fd5",
+        "rl_event": "Coupon Applied",
+        "rl_properties": {
+          "coupon_name": "May Deals 2016",
+          "discount": 23.32,
+          "reason": "",
+          "cart_id": "skdjsidjsdkdj29j",
+          "order_id": "50314b8e9bcf000000000000",
+          "coupon_id": "may_deals_2016"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "573698ef-7c76-4298-a70d-e4e76a6307be"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "573698ef-7c76-4298-a70d-e4e76a6307be",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "4cb40836-e945-47ec-9971-20edf3145e1b",
+        "rl_timestamp": "2019-08-20 11:13:35+0000",
+        "rl_anonymous_id": "573698ef-7c76-4298-a70d-e4e76a6307be",
+        "rl_event": "Product Viewed",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "fc1d416e-0716-4730-b785-d5db65bd0ac0"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "fc1d416e-0716-4730-b785-d5db65bd0ac0",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "2f7df8e0-7ff8-4eb3-9006-ca37f84bc879",
+        "rl_timestamp": "2019-08-20 11:12:28+0000",
+        "rl_anonymous_id": "fc1d416e-0716-4730-b785-d5db65bd0ac0",
+        "rl_event": "Product Clicked",
+        "rl_properties": {
+          "product_id": "507f1f77bcf86cd799439011",
+          "sku": "45790-32",
+          "category": "Games",
+          "name": "Monopoly: 3rd Edition",
+          "brand": "Monopoly",
+          "variant": "Single User",
+          "price": 19.0,
+          "quantity": 1.0,
+          "coupon": "MAY_DEALS_3",
+          "position": 1.0,
+          "url": "https://www.example.com/product/path",
+          "image_url": "https://www.example.com/product/path.jpg"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "1f6c7876-f619-4a71-a10d-62e1a2eba365"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "1f6c7876-f619-4a71-a10d-62e1a2eba365",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "8cf7234c-3e6c-4607-8c0a-d9c294a00835",
+        "rl_timestamp": "2019-08-20 11:14:51+0000",
+        "rl_anonymous_id": "1f6c7876-f619-4a71-a10d-62e1a2eba365",
+        "rl_event": "Checkout Started",
+        "rl_properties": {
+          "order_id": "50314b8e9bcf000000000000",
+          "affiliation": "Google Store",
+          "total": 0.0,
+          "value": 30.0,
+          "revenue": 25.0,
+          "shipping": 3.0,
+          "tax": 2.0,
+          "discount": 2.5,
+          "coupon": "hasbros",
+          "currency": "USD",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "432d0461-5ce2-4729-aa9d-0719d7be4277"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "432d0461-5ce2-4729-aa9d-0719d7be4277",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "025f8ed7-562b-4b09-901c-77697b8a0cd3",
+        "rl_timestamp": "2019-08-20 11:16:17+0000",
+        "rl_anonymous_id": "432d0461-5ce2-4729-aa9d-0719d7be4277",
+        "rl_event": "Payment Info Entered",
+        "rl_properties": {
+          "step": 2.0,
+          "shipping_method": "Fedex",
+          "payment_method": "Visa",
+          "checkout_id": "50314b8e9bcf000000000000",
+          "order_id": "50314b8e9bcf000000000000"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "d10ff549-dade-4c6d-85fe-017255e57e1b"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "d10ff549-dade-4c6d-85fe-017255e57e1b",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "a55d121f-56b2-4039-9293-00efbccc60fb",
+        "rl_timestamp": "2019-08-20 11:17:04+0000",
+        "rl_anonymous_id": "d10ff549-dade-4c6d-85fe-017255e57e1b",
+        "rl_event": "Order Completed",
+        "rl_properties": {
+          "order_id": "50314b8e9bcf000000000000",
+          "affiliation": "Google Store",
+          "total": 27.5,
+          "value": 30.0,
+          "revenue": 25.0,
+          "shipping": 3.0,
+          "tax": 2.0,
+          "discount": 2.5,
+          "coupon": "hasbros",
+          "currency": "USD",
+          "products": [
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            },
+            {
+              "product_id": "507f1f77bcf86cd799439011",
+              "sku": "45790-32",
+              "category": "Games",
+              "name": "Monopoly: 3rd Edition",
+              "brand": "Monopoly",
+              "variant": "Single User",
+              "price": 19.0,
+              "quantity": 1.0,
+              "coupon": "MAY_DEALS_3",
+              "position": 1.0,
+              "url": "https://www.example.com/product/path",
+              "image_url": "https://www.example.com/product/path.jpg"
+            }
+          ]
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    },
+    {
+      "rl_message": {
+        "rl_channel": "Test Channel",
+        "rl_context": {
+          "rl_app": {
+            "rl_build": "0",
+            "rl_name": "com.rudderlabs.android.library.test",
+            "rl_namespace": "com.rudderlabs.android.library.test",
+            "rl_version": "1.0.0"
+          },
+          "rl_traits": {
+            "rl_anonymous_id": "5f0d0e01-030d-4bc3-b8bb-4bef842f188b"
+          },
+          "rl_library": {
+            "rl_name": "com.rudderlabs.android.library",
+            "rl_version": "1.0"
+          },
+          "rl_os": {
+            "rl_name": "Android",
+            "rl_version": "9"
+          },
+          "rl_screen": {
+            "rl_density": 1,
+            "rl_width": 470,
+            "rl_height": 320
+          },
+          "rl_user_agent": "",
+          "rl_locale": "en-US",
+          "rl_device": {
+            "rl_id": "5f0d0e01-030d-4bc3-b8bb-4bef842f188b",
+            "rl_manufacturer": "unknown",
+            "rl_model": "robolectric",
+            "rl_name": "robolectric"
+          },
+          "rl_network": {
+            "rl_carrier": ""
+          }
+        },
+        "rl_type": "track",
+        "rl_message_id": "20f0965f-2ab4-4de4-b4ea-dab0c0cb1424",
+        "rl_timestamp": "2019-08-20 11:18:15+0000",
+        "rl_anonymous_id": "5f0d0e01-030d-4bc3-b8bb-4bef842f188b",
+        "rl_event": "Coupon Denied",
+        "rl_properties": {
+          "coupon_name": "May Deals 2016",
+          "discount": 23.32,
+          "reason": "Coupon expired",
+          "cart_id": "skdjsidjsdkdj29j",
+          "order_id": "50314b8e9bcf000000000000",
+          "coupon_id": "may_deals_2016"
+        },
+        "rl_integrations": [
+          "rudderlabs"
+        ]
+      }
+    }
+  ]
+}

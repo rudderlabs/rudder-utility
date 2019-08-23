@@ -1,0 +1,49 @@
+{
+    "rl_message": {
+      "rl_channel": "Test Channel",
+      "rl_context": {
+        "rl_app": {
+          "rl_build": "0",
+          "rl_name": "com.rudderlabs.android.library.test",
+          "rl_namespace": "com.rudderlabs.android.library.test",
+          "rl_version": "1.0.0"
+        },
+        "rl_traits": {
+          "rl_anonymous_id": "13a71313-d76c-4686-bc73-0a30375ed9ed"
+        },
+        "rl_library": {
+          "rl_name": "com.rudderlabs.android.library",
+          "rl_version": "1.0"
+        },
+        "rl_os": {
+          "rl_name": "Android",
+          "rl_version": "9"
+        },
+        "rl_screen": {
+          "rl_density": 1,
+          "rl_width": 470,
+          "rl_height": 320
+        },
+        "rl_user_agent": "",
+        "rl_locale": "en-US",
+        "rl_device": {
+          "rl_id": "13a71313-d76c-4686-bc73-0a30375ed9ed",
+          "rl_manufacturer": "unknown",
+          "rl_model": "robolectric",
+          "rl_name": "robolectric"
+        },
+        "rl_network": {
+          "rl_carrier": ""
+        }
+      },
+      "rl_type": "page",
+      "rl_message_id": "c2524ae9-a58a-445b-b0a6-d1e30037fd54",
+      "rl_timestamp": "2019-08-19 10:36:11+0000",
+      "rl_anonymous_id": "13a71313-d76c-4686-bc73-0a30375ed9ed",
+      "rl_properties": {
+      },
+      "rl_integrations": [
+        "rudderlabs"
+      ]
+    }
+  }
