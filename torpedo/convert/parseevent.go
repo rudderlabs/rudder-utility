@@ -19,24 +19,23 @@ import (
 	"github.com/tidwall/sjson"
 
 	"github.com/go-pg/pg"
-
-	"github.com/go-pg/pg/orm"
 )
 
 // export api
 // curl -u 93e43f5663a58bc385048a27c4e90c30:0c2b7453dec44b1b0c628d6214d8b741 'https://amplitude.com/api/2/export?start=20190813T00&end=20190813T23' >> game7.zip
 
 var (
-	out                        *os.File
-	batchSize                  int
-	rudderSend                 bool
-	userIDToChannel            map[string]chan []byte
+	out        *os.File
+	outNoUser  *os.File
+	batchSize  int
+	rudderSend bool
+	//userIDToChannel            map[string]chan []byte
 	client                     *http.Client
 	noOfUsers                  int
 	noOfBatches                int
 	db                         *pg.DB
 	compare                    bool
-	writeKey                   = "1P6q8fcXrkmekovCdk0a3gFq30X"
+	writeKey                   = "1Q62F70PQYcnBdXhyuriZGiQnCN"
 	lock                       sync.Mutex
 	netlock                    sync.Mutex
 	matchedInsertInOrderNo     int64
@@ -55,41 +54,7 @@ func (userEvent *userEventList) String() {
 	fmt.Printf("UserId: %v, InsertIds: %v, Events: %v \n", userEvent.UserID, userEvent.InsertIds, userEvent.Events)
 }
 
-func mainFunc(inputJSONFile string, outPutJSONFile string, outPutNoUserFile string) {
-	compare = true
-	batchSize = 10
-	rudderSend = false
-	noOfUsers = 10000
-	noOfBatches = 2000
-	userIDToChannel = make(map[string]chan []byte)
-	client = &http.Client{}
-
-	db = pg.Connect(&pg.Options{
-		User:     "ubuntu",
-		Password: "ubuntu",
-		Database: "testuserevent", //"testuserevent", //"userevent",
-		Addr:     "localhost:5432",
-	})
-
-	if db != nil {
-		fmt.Println("CONNECTED TO DB")
-		defer db.Close()
-	} else {
-		fmt.Println("CONNECTION ERROR")
-		return
-	}
-
-	if !compare {
-		opts := &orm.CreateTableOptions{
-			IfNotExists: true,
-		}
-
-		crErr := db.CreateTable(&userEventList{}, opts)
-
-		if crErr != nil {
-			panic(crErr)
-		}
-	}
+func initVar(outPut *os.File, userOutput *os.File) {
 
 	/* fileOptions, errorTracking := ioutil.ReadDir(inputJSONDir)
 
@@ -105,16 +70,18 @@ func mainFunc(inputJSONFile string, outPutJSONFile string, outPutNoUserFile stri
 
 	return */
 
-	f, err := os.Open(inputJSONFile)
-	if err != nil {
-		fmt.Println("error openinf file")
-		return
-	}
-	reader := bufio.NewReader(f)
+}
+
+func mainFunc(inputJSONFile string, outputJSONFile string, userOutputJSONFile string) {
+
+	fmt.Println("===processing file===", inputJSONFile)
+
+	userIDToChannel := make(map[string]chan []byte)
 
 	var errCreate error
+	var errCreateFile error
 
-	out, errCreate = os.Create(outPutJSONFile)
+	out, errCreate = os.Create(outputJSONFile)
 	if errCreate != nil {
 		fmt.Println("error openinf file")
 		return
@@ -122,13 +89,20 @@ func mainFunc(inputJSONFile string, outPutJSONFile string, outPutNoUserFile stri
 
 	defer out.Close()
 
-	outNoUser, errCreateFile := os.Create(outPutNoUserFile)
+	outNoUser, errCreateFile = os.Create(userOutputJSONFile)
 	if errCreateFile != nil {
 		fmt.Println("error openinf file")
 		return
 	}
 
 	defer outNoUser.Close()
+
+	f, err := os.Open(inputJSONFile)
+	if err != nil {
+		fmt.Println("error opening file")
+		return
+	}
+	reader := bufio.NewReader(f)
 
 	done := make(chan bool)
 	doneWorker := make(chan bool)
@@ -143,15 +117,19 @@ func mainFunc(inputJSONFile string, outPutJSONFile string, outPutNoUserFile stri
 
 	b, err := reader.ReadBytes('\n')
 
+	fmt.Println("here1")
+
 	proccessed := 0
 	nonUser := 0
 
 	for err != io.EOF {
+		fmt.Println("here2")
 		proccessed++
 		unmarhsalledData = nil
 		json.Unmarshal(b, &unmarhsalledData)
 
 		if unmarhsalledData["user_id"] == nil || unmarhsalledData["$insert_id"] == nil || unmarhsalledData["event_type"] == nil {
+			fmt.Println("here3")
 			outNoUser.Write(b)
 			//fmt.Println(string(b))
 			nonUser++
@@ -169,10 +147,12 @@ func mainFunc(inputJSONFile string, outPutJSONFile string, outPutNoUserFile stri
 				continue
 			}
 			userIDToChannel[unmarhsalledData["user_id"].(string)] = make(chan []byte)
+			fmt.Println("here4")
 			go transform(userIDToChannel[unmarhsalledData["user_id"].(string)], unmarhsalledData["user_id"].(string), done, doneWorker)
 		}
 
 		//fmt.Println(string(b))
+		fmt.Println("here5")
 		userIDToChannel[unmarhsalledData["user_id"].(string)] <- b
 
 		// user query
@@ -403,104 +383,115 @@ func transform(requestQ chan []byte, userID string, done chan bool, doneWorker c
 
 			}
 		case <-done:
-			if compare {
-				// fmt.Println("==userId==", unmarhsalledData["user_id"], userID)
+			{
+				if compare {
+					// fmt.Println("==userId==", unmarhsalledData["user_id"], userID)
+					lock.Lock()
+					testUser := userEventList{UserID: userID}
+					selectErr := db.Select(&testUser)
+					lock.Unlock()
+					if selectErr == nil {
+						// testUser.String()
+						// fmt.Println("==current user eventlist from AM==", eventList)
+						if len(testUser.Events) != len(eventList) {
+							fmt.Printf("userId %v event length don't match!!! \"stored events:\" %v \"AM downloaded events:\" %v\n", userID, len(testUser.Events), len(eventList))
+							doneWorker <- true
+							return
+						}
+						countSuccess := 0
+						for insertIndex := range testUser.InsertIds {
+							if testUser.InsertIds[insertIndex] == insertIDList[insertIndex] {
+								countSuccess++
+							} else {
+								fmt.Printf("stored insertId %v, AM insertId %v: \n", testUser.InsertIds[insertIndex], insertIDList[insertIndex])
+							}
+						}
+						if countSuccess == len(testUser.InsertIds) {
+							fmt.Println("insert order is right!!!")
+							atomic.AddInt64(&matchedInsertInOrderNo, 1)
+						}
+						isMatch := true
+						for index := range testUser.Events {
+							if testUser.Events[index] != eventList[index] {
+								fmt.Printf("userId %v event %v don't match \n", userID, index+1)
+								isMatch = false
+							}
+						}
+						if isMatch {
+							atomic.AddInt64(&matchedOtherPropsInOrderNo, 1)
+						}
+					} else {
+						//panic(selectErr)
+						fmt.Printf("error fetching stored eventList for user %v, err: %v \n", userID, selectErr)
+					}
+
+					fmt.Println("done with comparing")
+					doneWorker <- true
+					return
+				}
+
+				if count > 0 {
+					//fmt.Println("flushing remaining batch")
+					//fmt.Println("==userId==", userID)
+					outputRudderJSON, _ = sjson.SetBytes(outputRudderJSON, "sent_at", time.Now())
+					outputRudderJSON, _ = sjson.SetBytes(outputRudderJSON, "writeKey", writeKey)
+
+					if rudderSend {
+						// sleep to check if we still hit EOF
+						time.Sleep(10 * time.Millisecond)
+						sendToRudder(outputRudderJSON)
+					}
+
+					writeToOutputFile(outputRudderJSON)
+
+					outputJSON = []byte(`{"events":[]}`)
+					outputRudderJSON = []byte(`{"batch" : [{"rl_message": {}}], "sent_at":""}`)
+					eventTypeMap = make(map[string]bool)
+					// unmarhsalledData = nil
+					rudderEventMap = make(map[string]interface{})
+					rudderUserMap = make(map[string]interface{})
+					count = 0
+					batchNumber++
+				}
+
+				fmt.Println("===event and user list===", eventList, userID)
 				lock.Lock()
+
 				testUser := userEventList{UserID: userID}
 				selectErr := db.Select(&testUser)
-				lock.Unlock()
 				if selectErr == nil {
-					// testUser.String()
-					// fmt.Println("==current user eventlist from AM==", eventList)
-					if len(testUser.Events) != len(eventList) {
-						fmt.Printf("userId %v event length don't match!!! \"stored events:\" %v \"AM downloaded events:\" %v\n", userID, len(testUser.Events), len(eventList))
-						doneWorker <- true
-						return
-					}
-					countSuccess := 0
-					for insertIndex := range testUser.InsertIds {
-						if testUser.InsertIds[insertIndex] == insertIDList[insertIndex] {
-							countSuccess++
-						} else {
-							fmt.Printf("stored insertId %v, AM insertId %v: \n", testUser.InsertIds[insertIndex], insertIDList[insertIndex])
-						}
-					}
-					if countSuccess == len(testUser.InsertIds) {
-						fmt.Println("insert order is right!!!")
-						atomic.AddInt64(&matchedInsertInOrderNo, 1)
-					}
-					isMatch := true
-					for index := range testUser.Events {
-						if testUser.Events[index] != eventList[index] {
-							fmt.Printf("userId %v event %v don't match \n", userID, index+1)
-							isMatch = false
-						}
-					}
-					if isMatch {
-						atomic.AddInt64(&matchedOtherPropsInOrderNo, 1)
+					testUser.String()
+					testUser.Events = append(testUser.Events, eventList...)
+					testUser.InsertIds = append(testUser.InsertIds, insertIDList...)
+					updateErr := db.Update(&testUser)
+					if updateErr != nil {
+						panic(updateErr)
 					}
 				} else {
 					//panic(selectErr)
-					fmt.Printf("error fetching stored eventList for user %v, err: %v \n", userID, selectErr)
+					userEvent := userEventList{UserID: userID, Events: eventList, InsertIds: insertIDList}
+					if db != nil {
+						fmt.Println("db conn present")
+						insertErr := db.Insert(&userEvent)
+						if insertErr != nil {
+							panic(insertErr)
+						}
+					}
 				}
 
-				fmt.Println("done with comparing")
+				// test purpose
+
+				lock.Unlock()
+
+				atomic.AddInt64(&userSendCompleteCount, 1)
+				fmt.Println("===done users===", userSendCompleteCount)
+
 				doneWorker <- true
 				return
 			}
 
-			if count > 0 {
-				//fmt.Println("flushing remaining batch")
-				//fmt.Println("==userId==", userID)
-				outputRudderJSON, _ = sjson.SetBytes(outputRudderJSON, "sent_at", time.Now())
-				outputRudderJSON, _ = sjson.SetBytes(outputRudderJSON, "writeKey", writeKey)
-
-				if rudderSend {
-					// sleep to check if we still hit EOF
-					time.Sleep(10 * time.Millisecond)
-					sendToRudder(outputRudderJSON)
-				}
-
-				writeToOutputFile(outputRudderJSON)
-
-				outputJSON = []byte(`{"events":[]}`)
-				outputRudderJSON = []byte(`{"batch" : [{"rl_message": {}}], "sent_at":""}`)
-				eventTypeMap = make(map[string]bool)
-				// unmarhsalledData = nil
-				rudderEventMap = make(map[string]interface{})
-				rudderUserMap = make(map[string]interface{})
-				count = 0
-				batchNumber++
-			}
-
-			fmt.Println("===event and user list===", eventList, userID)
-			lock.Lock()
-			userEvent := userEventList{UserID: userID, Events: eventList, InsertIds: insertIDList}
-			if db != nil {
-				fmt.Println("db conn present")
-				insertErr := db.Insert(&userEvent)
-				if insertErr != nil {
-					panic(insertErr)
-				}
-			}
-
-			// test purpose
-			testUser := userEventList{UserID: userID}
-			selectErr := db.Select(&testUser)
-			if selectErr == nil {
-				testUser.String()
-			} else {
-				panic(selectErr)
-			}
-
-			lock.Unlock()
-
-			atomic.AddInt64(&userSendCompleteCount, 1)
-
-			fmt.Println("===done user===", userSendCompleteCount)
-			doneWorker <- true
-			return
 		}
+
 	}
 
 	// outputRudderJSON, _ = sjson.SetBytes(outputRudderJSON, "sent_at", time.Now())
@@ -556,7 +547,7 @@ func addOtherTransformation(outputJSON *[]byte, count int, unmarhsalledSourceDat
 
 	*outputJSON, _ = sjson.SetBytes(*outputJSON, "batch."+strconv.Itoa(count)+".rl_message.rl_context.rl_network.rl_carrier", unmarhsalledSourceData["device_carrier"])
 
-	*outputJSON, _ = sjson.SetBytes(*outputJSON, "batch."+strconv.Itoa(count)+".rl_message.rl_integrations", []string{"amplitude"})
+	*outputJSON, _ = sjson.SetBytes(*outputJSON, "batch."+strconv.Itoa(count)+".rl_message.rl_integrations", map[string]bool{"All": false, "GA": true})
 
 	*outputJSON, _ = sjson.SetBytes(*outputJSON, "batch."+strconv.Itoa(count)+".rl_message.rl_context.rl_traits.rl_anonymous_id", unmarhsalledSourceData["user_id"])
 
@@ -569,7 +560,7 @@ func sendToRudder(jsonPayload []byte) {
 	defer netlock.Unlock()
 	fmt.Println("sending to rudder...")
 	time.Sleep(10 * time.Millisecond)
-	req, err := http.NewRequest("POST", "http://localhost:8080/hello", bytes.NewBuffer(jsonPayload))
+	req, err := http.NewRequest("POST", "https://torpedo.rudderlabs.com/hello", bytes.NewBuffer(jsonPayload))
 	req.Close = true
 
 	req.Header.Set("Content-Type", "application/json")
