@@ -41,12 +41,13 @@ func getHash(s string) int {
 
 func sendToRudder(jsonPayload []byte, requestType string) {
 	// making request to /track or /identify endpoint
-	req, err := http.NewRequest("POST", dataPlaneURI+requestType, bytes.NewBuffer(jsonPayload))
+	req, err := http.NewRequest("POST", dataPlaneURI+"v1/"+requestType, bytes.NewBuffer(jsonPayload))
 	req.Close = true
 
 	req.Header.Set("Content-Type", "application/json")
 	req.SetBasicAuth(writeKey, "")
 
+	fmt.Println("sending payload to data-plane...")
 	resp, err := client.Do(req)
 
 	if resp != nil && resp.Body != nil {
@@ -131,7 +132,7 @@ func execute(userChannel chan map[string]interface{}, done chan bool, completed 
 	for {
 		select {
 		case event := <-userChannel:
-			fmt.Println("recieved")
+			fmt.Println("event recieved in user-channel")
 			// time.Sleep(100 * time.Millisecond) // for test
 			outputJSONEvent, requestType := transform(event)
 			outputJSONEvent, _ = sjson.SetBytes(outputJSONEvent, "sentAt", time.Now().Format("2006-01-02T15:04:05-0700Z"))
@@ -152,11 +153,22 @@ func execute(userChannel chan map[string]interface{}, done chan bool, completed 
 func main() {
 
 	// take console input for relevant fields, defaults for testing
-	numbeOfUserChannels = *flag.Int("numbeOfUserChannels", 10, "an int")
-	numberOfEventsPerChannel = *flag.Int("numberOfEventsPerChannel", 50, "an int")
-	filePath = *flag.String("filePath", "./data/input.json", "a string")
-	dataPlaneURI = *flag.String("dataPlaneURI", "http://localhost:8090/v1/", "a string")
-	writeKey = *flag.String("writeKey", "1ZF0t47FxqCg2mGFfsHTblpp4bD", "an int")
+	countUserChannels := flag.Int("numbeOfUserChannels", 10, "an int")
+	countEventsPerChannel := flag.Int("numberOfEventsPerChannel", 50, "an int")
+	path := flag.String("filePath", "./data/input.json", "a string")
+	URI := flag.String("dataPlaneURI", "http://localhost:8090/v1/", "a string, append a trailing slash in the URL")
+	key := flag.String("writeKey", "", "a string")
+
+	flag.Parse()
+
+	numbeOfUserChannels = *countUserChannels
+	numberOfEventsPerChannel = *countEventsPerChannel
+	filePath = *path
+	dataPlaneURI = *URI
+	writeKey = *key
+
+	// program arguments
+	fmt.Println(filePath, dataPlaneURI, writeKey)
 
 	userChannels := make([]chan map[string]interface{}, numbeOfUserChannels)
 	done := make(chan bool)
@@ -200,6 +212,7 @@ func main() {
 	// end program gracefully
 	for i := 0; i < numbeOfUserChannels; i++ {
 		<-completed
+		fmt.Printf("all events for user-channel completed")
 	}
 
 }
