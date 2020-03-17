@@ -83,7 +83,7 @@ func transform(amEvent map[string]interface{}) ([]byte, string) {
 	json, _ = sjson.SetBytes(json, "properties", mappedEventProp)
 	json, _ = sjson.SetBytes(json, "context.traits", mappedUserPro)
 	json, _ = sjson.SetBytes(json, "userProperties", mappedUserPro) //safegueard transformer
-	json, _ = sjson.SetBytes(json, "originalTimestamp", time.Now().Format("2006-01-02T15:04:05Z"))
+	json, _ = sjson.SetBytes(json, "originalTimestamp", time.Now().Format("2006-01-02T15:04:05-0700Z"))
 
 	addOtherTransformation(&json, amEvent)
 
@@ -134,7 +134,7 @@ func execute(userChannel chan map[string]interface{}, done chan bool, completed 
 			fmt.Println("recieved")
 			// time.Sleep(100 * time.Millisecond) // for test
 			outputJSONEvent, requestType := transform(event)
-			outputJSONEvent, _ = sjson.SetBytes(outputJSONEvent, "sentAt", time.Now().Format("2006-01-02T15:04:05Z"))
+			outputJSONEvent, _ = sjson.SetBytes(outputJSONEvent, "sentAt", time.Now().Format("2006-01-02T15:04:05-0700Z"))
 			// fmt.Println(string(outputJSONEvent))
 			// fmt.Println(requestType)
 			sendToRudder(outputJSONEvent, requestType)
