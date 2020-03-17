@@ -1,6 +1,6 @@
 ### Purpose
 
-- This script will take exported data from Amplitude and push them to RudderStack data-plane in the format accepted by RudderStack.
+- This script will take exported data from Amplitude as input and push them to RudderStack data-plane in the format accepted by RudderStack.
 
 ### How to run
 
