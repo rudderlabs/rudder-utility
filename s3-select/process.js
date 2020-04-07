@@ -66,19 +66,19 @@ async function renameFile(key) {
 
 // postResultToSlack make slack webhook request after formatting data
 // data-format ex:
-/* destination: S3, stats: {
+/* processedFile: test.json.aborted.gz , destination: S3, stats: {
     "failureCount": 458,
     "abortedCount": 229,
     "topFailureReasons": " MissingRegion: could not find region configuration"
   } , 
-  destination: AF, stats: {
+  processedFile: test.json.aborted.gz , destination: AF, stats: {
     "failureCount": 3,
     "abortedCount": 1,
     "topFailureReasons": " Missing Authentication"
   }, 
 */
 
-async function postResultToSlack(data) {
+async function postResultToSlack(data, fileKey) {
   try {
     let postData = [],
       slackRequestData,
@@ -123,9 +123,11 @@ async function postResultToSlack(data) {
       stats = { ...destStats };
       stats.topFailureReasons = findMaxOccuring(destStats.topFailureReasons);
       postData.push(
-        "destination: " +
+        "processedFile: " +
+          fileKey +
+          " , destination: " +
           dest +
-          ", " +
+          " , " +
           "stats: " +
           JSON.stringify(stats, null, "\t")
       );
@@ -224,7 +226,7 @@ async function processFile(key) {
     fs.writeFileSync("test/" + parts[parts.length - 1], entirePayload); */
 
     let jsonPayload = JSON.parse(entirePayload);
-    await postResultToSlack(jsonPayload);
+    await postResultToSlack(jsonPayload, key);
   } catch (err) {
     // handle error
     console.log("processFile: ", key, " ", err);
