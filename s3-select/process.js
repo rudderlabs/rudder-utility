@@ -11,6 +11,8 @@ const bucket = process.env.JOBS_BACKUP_BUCKET || "";
 const webhookURL = process.env.WEBHOOK_URL || "";
 const slackChannel = process.env.SLACK_CHANNEL || "";
 
+const maxFailureReasonLength = 2;
+
 // queue config, slack incoming webhook url has rate 1/sec
 const queue = new Queue({
   rules: {
@@ -24,32 +26,50 @@ const queue = new Queue({
 
 function findMaxOccuring(array) {
   let maxMap = {};
-  let maxCount = 0;
-  let maxCountElement;
+  let maxArray = [],
+    returnArray = [];
   array.forEach(el => {
     if (!maxMap[el]) {
       maxMap[el] = 1;
     } else {
       maxMap[el]++;
     }
-    if (maxMap[el] > maxCount) {
-      maxCountElement = el;
-      maxCount = maxMap[el];
+  });
+
+  Object.keys(maxMap).forEach(key => {
+    if (maxMap.hasOwnProperty(key)) {
+      maxArray.push([key, maxMap[key]]);
     }
   });
-  return maxCountElement;
+
+  // sort by max occuring count of failure reasons
+
+  maxArray.sort((first, second) => {
+    return first[1] > second[1] ? -1 : first[1] < second[1] ? 1 : 0;
+  });
+
+  // return top maxFailureReasonLength from the array
+  for (let i = 0; i < maxArray.length; i++) {
+    if (i < maxFailureReasonLength) {
+      returnArray.push(maxArray[i][0]);
+    } else {
+      break;
+    }
+  }
+
+  return returnArray;
 }
 
 // renameFile copy the file to new file with processed flag
 // delete the old file
 async function renameFile(key) {
   try {
-    let newKeyParts = key.split(".");
-    newKeyParts.splice(newKeyParts.length - 1, 0, "processed"); //add the processed flag just before file extension
+    let newKeyParts = key.split("/");
+    newKeyParts.splice(newKeyParts.length - 1, 0, "processed"); //add the processed path (folder) in the path
     var copyParams = {
       Bucket: bucket,
       CopySource: bucket + "/" + key,
-      Key: newKeyParts.join(".")
+      Key: newKeyParts.join("/")
     };
     var deleteParams = {
       Bucket: bucket,
@@ -66,15 +86,15 @@ async function renameFile(key) {
 
 // postResultToSlack make slack webhook request after formatting data
 // data-format ex:
-/* processedFile: test.json.aborted.gz , destination: S3, stats: {
+/* destination: S3, stats: {
     "failureCount": 458,
     "abortedCount": 229,
-    "topFailureReasons": " MissingRegion: could not find region configuration"
+    "topFailureReasons": [" MissingRegion: could not find region configuration"]
   } , 
-  processedFile: test.json.aborted.gz , destination: AF, stats: {
+  destination: AF, stats: {
     "failureCount": 3,
     "abortedCount": 1,
-    "topFailureReasons": " Missing Authentication"
+    "topFailureReasons": [" Missing Authentication"]
   }, 
 */
 
