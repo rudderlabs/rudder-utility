@@ -7,16 +7,20 @@ const getenv = require("getenv");
 //dotenv.config();
 
 const webhookURL = getenv(
-  "WEBHOOK_URL",
+  "SLACK_WEBHOOK_URL",
   ""
 );
 const slackChannel = getenv("SLACK_CHANNEL", "");
 const timeUnit = getenv("TIME_UNIT", "DAYS");
 
 const isPvcToBeDeleted = getenv.bool("IS_PVC_TO_BE_DELETED", false);
-let allowedUninstalledTimeUnits = getenv.int(
+const allowedUninstalledTimeUnits = getenv.int(
   "PVC_RETAIN_ALLOWED_TIME_UNITS",
   7
+);
+const notificationBeingSentBeforeTimeUnits = getenv.int(
+  "PVC_DELETION_NOTIFICATION_TIME_UNITS",
+  3
 );
 
 console.log(
@@ -95,7 +99,7 @@ async function sendSlackNotification(pvc, deleted) {
           .catch(error => {
             console.log(error)
             // Too many requests
-            if (error.response.status === 429) {
+            if (error.response && error.response.status === 429) {
               return retry(error.response.data.parameters.retry_after); // https://api.slack.com/docs/rate-limits
             }
             throw error;
@@ -149,7 +153,7 @@ async function deletePvcs(pvcList) {
      console.log("todayUnit: ", today + " uninstalledUnit: ", uninstalledDay)
      console.log ("diff units: " + diffUnits + " allowed diff units: " + allowedUninstalledTimeUnits)
 
-    if (diffUnits < allowedUninstalledTimeUnits) {
+    if ((diffUnits >= notificationBeingSentBeforeTimeUnits) && (diffUnits < allowedUninstalledTimeUnits)) {
       try {
         await sendSlackNotification(pvc, false);
       } catch (error) {
@@ -157,7 +161,7 @@ async function deletePvcs(pvcList) {
       }
     }
 
-    if (today - uninstalledDay >= allowedUninstalledTimeUnits) {
+    if (diffUnits >= allowedUninstalledTimeUnits) {
       try {
         if (isPvcToBeDeleted) {
           console.log("===deleting pvc ====")
