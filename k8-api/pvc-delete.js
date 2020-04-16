@@ -117,30 +117,30 @@ async function deletePvcs(pvcList) {
   let pvc, uninstalledDay, today;
   for (let i = 0; i < pvcList.length; i++) {
     pvc = pvcList[i];
-    if (!pvc.labels["uninstalled-on"]) {
+    if (!pvc.labels["uninstalled-at"]) {
       continue;
     }
-    pvc.labels["uninstalled-on"] = parseInt(pvc.labels["uninstalled-on"]);
+    pvc.labels["uninstalled-at"] = parseInt(pvc.labels["uninstalled-at"]);
 
     if (timeUnit == "DAYS") {
-      uninstalledDay = (pvc.labels["uninstalled-on"]) / (60 * 60 * 24); //days since epoch when it was uninstalled, it comes in secs
+      uninstalledDay = (pvc.labels["uninstalled-at"]) / (60 * 60 * 24); //days since epoch when it was uninstalled, it comes in secs
       today = parseInt((Date.now()) / (60 * 60 * 24 * 1000)); // from ms to days
       pvc.deletionScheduledDate = new Date(
-        (pvc.labels["uninstalled-on"] +
+        (pvc.labels["uninstalled-at"] +
           allowedUninstalledTimeUnits * 60 * 60 * 24) *
           1000
       );
     }
 
     if (timeUnit == "SECS") {
-      uninstalledDay = pvc.labels["uninstalled-on"]; //seconds since epoch when it was uninstalled
+      uninstalledDay = pvc.labels["uninstalled-at"]; //seconds since epoch when it was uninstalled
       today = parseInt(Date.now()/1000); // ms to secs
       // debug logs
-       console.log("uinstall Date: ", pvc.labels["uninstalled-on"])
+       console.log("uinstall Date: ", pvc.labels["uninstalled-at"])
        console.log("allowedUninstalledTimeUnits: ", allowedUninstalledTimeUnits)
-       console.log("expected date: ", pvc.labels["uninstalled-on"] + allowedUninstalledTimeUnits)
+       console.log("expected date: ", pvc.labels["uninstalled-at"] + allowedUninstalledTimeUnits)
       pvc.deletionScheduledDate = new Date(
-        (pvc.labels["uninstalled-on"] + allowedUninstalledTimeUnits) * 1000
+        (pvc.labels["uninstalled-at"] + allowedUninstalledTimeUnits) * 1000
       );
     }
 
