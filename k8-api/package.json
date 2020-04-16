@@ -1,0 +1,21 @@
+{
+  "name": "k8-api",
+  "version": "1.0.1",
+  "description": "",
+  "main": "pvc-delete.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@kubernetes/client-node": "^0.11.1",
+    "axios": "^0.19.2",
+    "axios-retry": "^3.1.2",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "getenv": "^1.0.0",
+    "qs": "^6.9.3",
+    "smart-request-balancer": "^2.1.1"
+  }
+}
