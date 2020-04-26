@@ -5,7 +5,9 @@ const getenv = require("getenv");
 
 const client = new S3();
 const bucket = getenv("S3_BUCKET", "");
+const keyPrefix = getenv("KEY_PREFIX", "");
 const pageToSearch = getenv("PAGE_URL", "");
+const identifier = getenv("IDENTIFIER", "");
 
 var deviceIdToFieldsMap = new Map();
 
@@ -13,13 +15,13 @@ function map_to_object(map) {
   const out = Object.create(null);
   map.forEach((value, key) => {
     if (value instanceof Map) {
-      console.log("value of type map...");
+      // console.log("value of type map...");
       out[key] = map_to_object(value);
     } else if (value instanceof Set) {
-      console.log("value of type set....");
+      // console.log("value of type set....");
       out[key] = [...value];
     } else if (value instanceof Object) {
-      console.log("value of type object...");
+      // console.log("value of type object...");
       Object.keys(value).forEach(valueKey => {
         if (value.hasOwnProperty(valueKey)) {
           out[valueKey] = map_to_object(value[valueKey]);
@@ -33,13 +35,20 @@ function map_to_object(map) {
 }
 
 async function processData(data, fileKey) {
+  var topLevelKey;
+
   try {
     data.forEach(event => {
-      if (event.device_id) {
-        console.log("\n processing device_ids.....");
-        if (!deviceIdToFieldsMap.has(event.device_id)) {
-          deviceIdToFieldsMap.set(event.device_id, new Map());
-          var deviceIdMap = deviceIdToFieldsMap.get(event.device_id);
+      if (identifier == "ip") {
+        topLevelKey = event.ip;
+      } else {
+        topLevelKey = event.device_id;
+      }
+      if (topLevelKey) {
+        // console.log("\n processing device_ids.....");
+        if (!deviceIdToFieldsMap.has(topLevelKey)) {
+          deviceIdToFieldsMap.set(topLevelKey, new Map());
+          var deviceIdMap = deviceIdToFieldsMap.get(topLevelKey);
           deviceIdMap.set("ip", new Set());
           deviceIdMap.set("ua", new Set());
           deviceIdMap.set("anonIdToUserId", new Map());
@@ -47,20 +56,18 @@ async function processData(data, fileKey) {
           deviceIdMap.set("anonymousId", new Map());
         }
 
-        var ipSet = deviceIdToFieldsMap.get(event.device_id).get("ip");
-        var uaSet = deviceIdToFieldsMap.get(event.device_id).get("ua");
-        var anonIdMap = deviceIdToFieldsMap
-          .get(event.device_id)
-          .get("anonymousId");
-        var userIdMap = deviceIdToFieldsMap.get(event.device_id).get("userId");
+        var ipSet = deviceIdToFieldsMap.get(topLevelKey).get("ip");
+        var uaSet = deviceIdToFieldsMap.get(topLevelKey).get("ua");
+        var anonIdMap = deviceIdToFieldsMap.get(topLevelKey).get("anonymousId");
+        var userIdMap = deviceIdToFieldsMap.get(topLevelKey).get("userId");
         var anonIdToUserIdLink = deviceIdToFieldsMap
-          .get(event.device_id)
+          .get(topLevelKey)
           .get("anonIdToUserId");
 
         ipSet.add(event.ip);
         uaSet.add(event.ua);
 
-        console.log("ipSet: ", ipSet, " uaSet: " + JSON.stringify(uaSet));
+        // console.log("ipSet: ", ipSet, " uaSet: " + JSON.stringify(uaSet));
 
         if (!anonIdMap.has(event.anonymousId)) {
           anonIdMap.set(event.anonymousId, new Map());
@@ -75,7 +82,7 @@ async function processData(data, fileKey) {
         );
         anonIdMap.set(event.anonymousId, anonIdToPageUrlCountsMap);
 
-        console.log("anonIdMap: ", anonIdMap);
+        // console.log("anonIdMap: ", anonIdMap);
 
         if (event.userId) {
           if (!userIdMap.has(event.userId)) {
@@ -92,7 +99,7 @@ async function processData(data, fileKey) {
           userIdMap.set(event.userId, userIdToPageUrlCountsMap);
         }
 
-        console.log("userIdMap: ", userIdMap);
+        // console.log("userIdMap: ", userIdMap);
 
         if (!anonIdToUserIdLink.has(event.anonymousId)) {
           anonIdToUserIdLink.set(event.anonymousId, new Set());
@@ -104,16 +111,14 @@ async function processData(data, fileKey) {
           );
         }
 
-        console.log("anonIdToUserIdLink: ", anonIdToUserIdLink);
+        // console.log("anonIdToUserIdLink: ", anonIdToUserIdLink);
       }
     });
 
-    
-    
-    console.log(
-      "\n deviceIdToFieldsMap: final ",
-      JSON.stringify(map_to_object(deviceIdToFieldsMap))
-    );
+    // console.log(
+    //   "\n deviceIdToFieldsMap: final ",
+    //   JSON.stringify(map_to_object(deviceIdToFieldsMap))
+    // );
   } catch (error) {
     console.log("processData: ", error);
   }
@@ -124,12 +129,15 @@ async function processData(data, fileKey) {
 // then rename file in aws
 async function processFile(key) {
   var query;
-  if(pageToSearch) {
-      query= "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page' AND _1.properties.url=" +
-      "'" + pageToSearch + "'"
+  if (pageToSearch) {
+    query =
+      "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page' AND _1.properties.url=" +
+      "'" +
+      pageToSearch +
+      "'";
   } else {
-      query = "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page'"
-
+    query =
+      "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page'";
   }
   let params = {
     Bucket: bucket,
@@ -172,7 +180,7 @@ async function processFile(key) {
       }
     }
 
-    console.log("length...", results.length)    
+    // console.log("length...", results.length);
     if (results.length > 0) {
       // trim the trailing "," from the last element
       let lastResult = results[results.length - 1];
@@ -225,12 +233,23 @@ async function listKeys() {
     //   await processFile(fileKey);
     // });
 
-    for(var i=0; i< fileKeys.length; i++) {
+    for (var i = 0; i < fileKeys.length; i++) {
+      if (keyPrefix) {
+        if (fileKeys[i].includes(keyPrefix)) {
+          await processFile(fileKeys[i]);
+        } else {
+          continue;
+        }
+      } else {
         await processFile(fileKeys[i]);
+      }
     }
 
-    if(deviceIdToFieldsMap.size > 0) {
-        fs.appendFileSync("output.json", JSON.stringify(map_to_object(deviceIdToFieldsMap)) + "\n")
+    if (deviceIdToFieldsMap.size > 0) {
+      fs.appendFileSync(
+        "output.json",
+        JSON.stringify(map_to_object(deviceIdToFieldsMap)) + "\n"
+      );
     }
   } catch (error) {
     console.log("listKeys: ", error);
