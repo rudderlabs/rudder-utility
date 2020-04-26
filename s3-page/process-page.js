@@ -36,6 +36,7 @@ function map_to_object(map) {
 
 async function processData(data, fileKey) {
   var topLevelKey;
+  var pageUrl;
 
   try {
     data.forEach(event => {
@@ -44,6 +45,13 @@ async function processData(data, fileKey) {
       } else {
         topLevelKey = event.device_id;
       }
+
+      if(event.url) {
+          pageUrl = event.url
+      } else {
+          pageUrl = event.context_page
+      }
+
       if (topLevelKey) {
         // console.log("\n processing device_ids.....");
         if (!deviceIdToFieldsMap.has(topLevelKey)) {
@@ -73,12 +81,12 @@ async function processData(data, fileKey) {
           anonIdMap.set(event.anonymousId, new Map());
         }
         var anonIdToPageUrlCountsMap = anonIdMap.get(event.anonymousId);
-        if (!anonIdToPageUrlCountsMap.has(event.url)) {
-          anonIdToPageUrlCountsMap.set(event.url, 0);
+        if (!anonIdToPageUrlCountsMap.has(pageUrl)) {
+          anonIdToPageUrlCountsMap.set(pageUrl, 0);
         }
         anonIdToPageUrlCountsMap.set(
-          event.url,
-          anonIdToPageUrlCountsMap.get(event.url) + 1
+          pageUrl,
+          anonIdToPageUrlCountsMap.get(pageUrl) + 1
         );
         anonIdMap.set(event.anonymousId, anonIdToPageUrlCountsMap);
 
@@ -89,12 +97,12 @@ async function processData(data, fileKey) {
             userIdMap.set(event.userId, new Map());
           }
           var userIdToPageUrlCountsMap = userIdMap.get(event.userId);
-          if (!userIdToPageUrlCountsMap.has(event.url)) {
-            userIdToPageUrlCountsMap.set(event.url, 0);
+          if (!userIdToPageUrlCountsMap.has(pageUrl)) {
+            userIdToPageUrlCountsMap.set(pageUrl, 0);
           }
           userIdToPageUrlCountsMap.set(
-            event.url,
-            userIdToPageUrlCountsMap.get(event.url) + 1
+            pageUrl,
+            userIdToPageUrlCountsMap.get(pageUrl) + 1
           );
           userIdMap.set(event.userId, userIdToPageUrlCountsMap);
         }
@@ -131,13 +139,13 @@ async function processFile(key) {
   var query;
   if (pageToSearch) {
     query =
-      "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page' AND _1.properties.url=" +
+      "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.context.page.url as context_page, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page' AND _1.properties.url=" +
       "'" +
       pageToSearch +
       "'";
   } else {
     query =
-      "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page'";
+      "select _1.request_ip as ip, _1.context.device.rudder_device_id as device_id, _1.context.userAgent as ua, _1.anonymousId, _1.userId, _1.context.page.url as context_page, _1.properties.url, _1.sentAt from s3object[*] where  _1.type='page'";
   }
   let params = {
     Bucket: bucket,
