@@ -34,6 +34,7 @@ function map_to_object(map) {
   return out;
 }
 
+// aim is to have an output similar to output.json
 async function processData(data, fileKey) {
   var topLevelKey;
   var pageUrl;
@@ -133,8 +134,7 @@ async function processData(data, fileKey) {
 }
 
 // processFile get the required keys from the file, make a json payload
-// then call postToSlack
-// then rename file in aws
+// then call processData
 async function processFile(key) {
   var query;
   if (pageToSearch) {
