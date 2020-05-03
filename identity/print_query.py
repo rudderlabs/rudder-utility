@@ -57,6 +57,7 @@ prev_table = "id_graph_0"
 base_table = prev_table
 MAX_VERSION = 3
 MAX_ITER = 8
+NO_DELTA = True
 DELTA_FOR_EVER = True
 
 for version in range(MAX_VERSION):
@@ -68,7 +69,45 @@ for version in range(MAX_VERSION):
         next_table = "id_graph_%d_%d" % (version, cnt)
         format_str = {"curr_version":str(version), "next_table": next_table, "prev_table": prev_table, "base_table":base_table}
 
-        if DELTA_FOR_EVER:
+        if NO_DELTA:
+          query = """
+                DROP TABLE IF EXISTS {next_table};
+		CREATE TABLE {next_table} AS
+		(
+		 SELECT 
+		orig_anon_id, 
+		orig_user_id, 
+			CASE 
+			WHEN curr_anon_id is NULL THEN NULL
+			WHEN curr_anon_id > tmp_anon_id THEN tmp_anon_id
+			ELSE curr_anon_id
+		     END AS curr_anon_id,
+
+		     CASE 
+			WHEN curr_user_id is NULL THEN NULL
+			WHEN curr_user_id > tmp_user_id THEN tmp_user_id
+			ELSE curr_user_id
+		     END as curr_user_id
+		FROM
+		 (
+		  SELECT 
+			    orig_anon_id,
+			    orig_user_id, 
+			    curr_anon_id,
+			  curr_user_id,
+		    MIN(curr_user_id) 
+		  OVER(PARTITION BY orig_anon_id)
+		    as tmp_anon_id,
+
+		    MIN(curr_anon_id) 
+			      OVER(PARTITION BY orig_user_id)
+			 as tmp_user_id
+		   FROM
+		     {prev_table}
+		   ) AS TMP_GRAPH_0
+		 );
+	    """.format(**format_str)
+        elif DELTA_FOR_EVER:
             query = """
                 DROP TABLE IF EXISTS {next_table};
 		CREATE TABLE {next_table} AS
@@ -179,7 +218,7 @@ for version in range(MAX_VERSION):
         prev_table = next_table
 
     #End of version, update TABLE
-    if DELTA_FOR_EVER:
+    if not NO_DELTA and DELTA_FOR_EVER:
         query = """INSERT INTO {next_table} 
                    SELECT * from {base_table} 
                    WHERE  orig_anon_id NOT IN 
