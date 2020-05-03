@@ -87,7 +87,9 @@ for version in range(MAX_VERSION):
 			WHEN curr_user_id is NULL THEN NULL
 			WHEN curr_user_id > tmp_user_id THEN tmp_user_id
 			ELSE curr_user_id
-		     END as curr_user_id
+		     END as curr_user_id,
+                     0 as version_anon_id,
+                     0 as version_user_id
 		FROM
 		 (
 		  SELECT 
