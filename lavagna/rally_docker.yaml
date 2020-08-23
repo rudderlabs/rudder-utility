@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_USER=<user>
+      - POSTGRES_PASSWORD=<password>
+      - POSTGRES_DB=<db>
+    ports:
+      - "<LOCAL_PORT>:5432"
+    volumes:
+      - <LOCAL_VOL>:/var/lib/postgresql/data
+  rally:
+    depends_on:
+      - db
+    image: digitalfondue/lavagna:latest
+    ports:
+      - "<PORT>:8080"
+    environment:
+      - DB_DIALECT=PGSQL
+      - DB_URL=jdbc pg connection string
+      - DB_USER=<user>
+      - DB_PASS=<password>
+      - SPRING_PROFILE=dev
