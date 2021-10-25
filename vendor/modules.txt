@@ -12,11 +12,11 @@ github.com/go-pg/pg/types
 github.com/jinzhu/inflection
 # github.com/satori/go.uuid v1.2.0
 github.com/satori/go.uuid
-# github.com/tidwall/gjson v1.3.2
+# github.com/tidwall/gjson v1.9.3
 github.com/tidwall/gjson
-# github.com/tidwall/match v1.0.1
+# github.com/tidwall/match v1.1.1
 github.com/tidwall/match
-# github.com/tidwall/pretty v1.0.0
+# github.com/tidwall/pretty v1.2.0
 github.com/tidwall/pretty
 # github.com/tidwall/sjson v1.0.4
 github.com/tidwall/sjson
